@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PrimeNGConfig} from "primeng/api";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'todo-list-views';
+export class AppComponent implements OnInit {
+
+  constructor(private primeConfig: PrimeNGConfig) {}
+
+  title = 'Mis Tareas';
+
+  ngOnInit() {
+    this.primeConfig.ripple = true;
+  }
+
 }
