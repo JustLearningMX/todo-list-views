@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { RouterLink } from "@angular/router";
 
 import {PrimeNgModule} from "../prime-ng/prime-ng.module";
@@ -17,7 +17,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
   imports: [
     CommonModule,
     PrimeNgModule,
-    RouterLink
+    RouterLink,
+    NgOptimizedImage
   ]
 })
 export class SharedModule { }
