@@ -7,6 +7,8 @@ import {LoginComponent} from "./pages/login/login.component";
 import {PrimeNgModule} from "../prime-ng/prime-ng.module";
 import { LayoutComponent } from './pages/layout/layout.component';
 import { AuthHeaderComponent } from './components/auth-header/auth-header.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { AuthHeaderComponent } from './components/auth-header/auth-header.compon
     CommonModule,
     AuthRoutingModule,
     PrimeNgModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

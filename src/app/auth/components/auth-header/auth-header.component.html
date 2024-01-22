@@ -1,14 +1,13 @@
-<!--<p-toolbar class="">-->
 <p-toolbar [style]="{ 'padding': '.8rem'}">
 
   <ng-template pTemplate="start">
   </ng-template>
 
   <ng-template pTemplate="center">
-    <div class="flex flex-wrap align-items-center gap-3">
+    <a class="flex flex-wrap align-items-center gap-3" [routerLink]="'/'">
       <img src="./assets/images/note-task-logo2.png" alt="logo" height="40" width="40">
-      <p>To-Do Tareas </p>
-    </div>
+      <p class="app_name">To-Do Tareas </p>
+    </a>
   </ng-template>
 
   <ng-template pTemplate="end">

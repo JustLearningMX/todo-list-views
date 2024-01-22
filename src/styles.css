@@ -29,7 +29,14 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+html {
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
 body {
+  height: 100%;
   line-height: 1;
 }
 ol, ul {
@@ -50,3 +57,9 @@ table {
 
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+
+a {
+  text-decoration: none;
+  font-weight: inherit;
+  color: inherit;
+}

@@ -1,2 +1,11 @@
-<auth-header></auth-header>
-<router-outlet></router-outlet>
+<div class="grid grid-nogutter" [style]="{ 'height': '100%'}">
+  <div class="col-12">
+      <auth-header></auth-header>
+  </div>
+  <div class="col-12 h-full">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-12">
+    <shared-footer></shared-footer>
+  </div>
+</div>

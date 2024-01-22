@@ -1,4 +1,3 @@
-.header {
-  /*height: 70px;*/
-  border: 1px solid red;
+.app_name {
+  font-weight: 500;
 }
