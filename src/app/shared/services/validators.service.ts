@@ -48,6 +48,8 @@ export class ValidatorsService {
           return 'El valor mínimo es 0';
         case 'pattern':
           return field === 'email' ? 'Ingrese un email válido' : 'El campo no es válido';
+        case 'noEqual':
+          return 'Las contraseñas no coinciden';
         default:
           return 'Error desconocido';
       }
