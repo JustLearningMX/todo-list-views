@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import { ValidatorsService } from "../../../shared/services/validators.service";
-import {UserLoginBody, UserLoginResponse} from "../../interfaces/users/User.interface";
-import {UserService} from "../../services/user.service";
+import { UserLoginBody, UserLoginResponse } from "../../interfaces/users/User.interface";
+import { AuthService } from "../../services/auth.service";
+import { UserMessages } from "../../interfaces/users/User-messages.enum";
 
 import Swal from 'sweetalert2'
 
@@ -14,41 +16,47 @@ import Swal from 'sweetalert2'
 })
 export class LoginComponent {
 
+  isButtonDisabled: boolean = false;
+
   private userLoginBody!: UserLoginBody;
-  private userLoginResponse!: UserLoginResponse;
 
   constructor(
     private fb: FormBuilder,
     public validatorService: ValidatorsService,
-    private userService: UserService
+    private userService: AuthService,
+    private router: Router
   ) {}
 
   myForm: FormGroup = this.fb.group({
-    email: ['virtual.liga@gmail.com', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
-    password: ['GabyDanny0913', [Validators.required, Validators.minLength(8)]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   onSubmit() {
+    this.isButtonDisabled = true;
+
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
+      this.isButtonDisabled = false;
       return;
     }
 
     this.userLoginBody = this.myForm.value;
 
-    this.userService.loginUser(this.userLoginBody)
+    this.userService.login(this.userLoginBody)
       .subscribe({
-        next: (resp ) => {
+        next: (resp ): void => {
           const respSuccess = resp as UserLoginResponse;
           Swal.fire({
             icon: 'success',
             title: 'Bienvenido',
-            text: `Hola ${respSuccess.firstName} ${respSuccess.lastName}`
+            text: `Bienvenido ${respSuccess.firstName} ${respSuccess.lastName}`
           });
           this.myForm.reset()
+          // this.router.navigateByUrl('/tasks');
         },
-
-        error: (err: string) => {
+        error: (err: UserMessages): void => {
+          this.isButtonDisabled = false;
           Swal.fire({
               icon: 'error',
               title: 'Oops...',

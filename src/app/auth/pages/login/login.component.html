@@ -68,7 +68,13 @@
       <div class="flex align-items-center justify-content-between mb-2">
       </div>
 
-      <button pButton label="Iniciar sesión" icon="pi pi-user" class="w-full"></button>
+      <button
+        pButton
+        label="Iniciar sesión"
+        icon="pi pi-user"
+        class="w-full"
+        [disabled]="isButtonDisabled"
+      ></button>
     </form>
   </div>
 </div>
