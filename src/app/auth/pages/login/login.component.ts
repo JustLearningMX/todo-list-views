@@ -53,7 +53,7 @@ export class LoginComponent {
             text: `Bienvenido ${respSuccess.firstName} ${respSuccess.lastName}`
           });
           this.myForm.reset()
-          // this.router.navigateByUrl('/tasks');
+          this.router.navigateByUrl('/mis-listas');
         },
         error: (err: UserMessages): void => {
           this.isButtonDisabled = false;

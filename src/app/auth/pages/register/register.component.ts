@@ -34,11 +34,11 @@ export class RegisterComponent {
   ) {}
 
   myForm: FormGroup = this.fb.group({
-    firstName: ['Danny', [Validators.required]],
-    lastName: ['Chavez', [Validators.required]],
-    email: ['danny@gmail.com', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
-    password: ['12345678', [Validators.required, Validators.minLength(8)]],
-    password2: ['12345678', [Validators.required]],
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    password2: ['', [Validators.required]],
   },
     {
       validators: [

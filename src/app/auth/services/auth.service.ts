@@ -46,13 +46,9 @@ export class AuthService {
   }
 
   checkAuthentication(): Observable<boolean> {
-    if (!localStorage.getItem('userAuthToken')) return of(false);
 
-    return this.http.get<UserLoginResponse>( `${this.baseUrl}/users/1`)
-      .pipe(
-        map( user => !!user),
-        catchError( () => of(false) )
-      );
+    return !localStorage.getItem('userAuthToken') ? of(false) : of(true);
+
   }
 
   logout() {
