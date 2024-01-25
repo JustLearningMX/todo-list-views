@@ -7,13 +7,19 @@ import { LayoutTasksComponent } from './pages/layout-tasks/layout-tasks.componen
 import { ListTasksComponent } from './pages/list-tasks/list-tasks.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { SharedModule } from "../shared/shared.module";
+import { TasksHeaderComponent } from './components/tasks-header/tasks-header.component';
+import { WelcomeUserComponent } from './components/welcome-user/welcome-user.component';
+import { ListSkeletonComponent } from './components/list-skeleton/list-skeleton.component';
 
 
 @NgModule({
   declarations: [
     LayoutTasksComponent,
     ListTasksComponent,
-    TasksComponent
+    TasksComponent,
+    TasksHeaderComponent,
+    WelcomeUserComponent,
+    ListSkeletonComponent
   ],
     imports: [
         CommonModule,

@@ -148,7 +148,7 @@
       <button
         pButton
         label="Registrarme"
-        icon="pi pi-check-circle"
+        [icon]="isButtonDisabled ? 'pi pi-spin pi-spinner' : 'pi pi-check-circle'"
         class="w-full"
         [disabled]="this.isButtonDisabled"
       ></button>

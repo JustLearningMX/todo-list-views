@@ -71,7 +71,7 @@
       <button
         pButton
         label="Iniciar sesión"
-        icon="pi pi-user"
+        [icon]="isButtonDisabled ? 'pi pi-spin pi-spinner' : 'pi pi-user'"
         class="w-full"
         [disabled]="isButtonDisabled"
       ></button>

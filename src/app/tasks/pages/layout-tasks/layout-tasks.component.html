@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<div class="grid grid-nogutter" >
+  <div class="col-12">
+    <tasks-header></tasks-header>
+  </div>
+  <div class="col-12 h-full mt-1 mb-6 p-2" [style]="{'min-height': '250px'}">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-12">
+    <shared-footer></shared-footer>
+  </div>
+</div>

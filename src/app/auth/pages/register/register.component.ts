@@ -55,7 +55,13 @@ export class RegisterComponent {
       return;
     }
 
-    const {firstName, lastName, email, password} = this.myForm.value;
+    const {
+      firstName,
+      lastName,
+      email,
+      password
+    } = this.myForm.value;
+
     this.user.firstName = firstName;
     this.user.lastName = lastName;
     this.user.email = email;
