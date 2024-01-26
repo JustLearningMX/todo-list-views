@@ -5,10 +5,12 @@ import {
   UserLoginBody,
   UserLoginResponse,
   UserLoginResponseError,
-  UserRegisterBody, UserRegisterResponse, UserRegisterResponseError
-} from "../interfaces/users/User.interface";
-import {catchError, map, Observable, of, tap, throwError} from "rxjs";
-import {UserMessages} from "../interfaces/users/User-messages.enum";
+  UserRegisterBody,
+  UserRegisterResponse,
+  UserRegisterResponseError
+} from "../../users/interfaces/User.interface";
+
+import {catchError, Observable, of, tap, throwError} from "rxjs";
 import {getFirstMessageOfError} from "../../shared/utils/Message-values";
 
 @Injectable({

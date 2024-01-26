@@ -1,4 +1,5 @@
 import { UserRoles } from "./User-roles.enum";
+import {ListOfTasks} from "../../tasks/interfaces/list-tasks.interface";
 
 export interface UserLoginBody {
   email: string;
@@ -46,4 +47,23 @@ export interface UserRegisterResponseError {
   path: string,
   timestamp: Date,
   messages: string[],
+}
+
+export interface UserDataWithoutTasks {
+  id: number,
+  firstName: string,
+  lastName: string,
+  email: string,
+  active: boolean,
+  role: UserRoles,
+}
+
+export interface UserFullData {
+  id: number,
+  firstName: string,
+  lastName: string,
+  email: string,
+  active: boolean,
+  role: UserRoles,
+  listTasks: ListOfTasks[],
 }

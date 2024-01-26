@@ -1,0 +1,27 @@
+.container_lists_tasks {
+  height: 100%;
+  display: grid;
+  grid-template:
+    "lists" 1fr
+    "btnNewTask" auto / 1fr;
+}
+
+.container_lists_tasks .lists {
+  grid-area: lists;
+}
+
+.container_btnAddList {
+  padding: .6rem 0;
+
+  && .icon {
+    border-radius: 50%;
+    padding: .2rem;
+    border: .1rem solid #ccc;
+    font-size: .5rem;
+  }
+}
+
+.container_btnAddTask {
+  grid-area: btnNewTask;
+  width: 100%;
+}

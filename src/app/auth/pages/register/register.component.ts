@@ -3,8 +3,8 @@ import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { ValidatorsService } from "../../../shared/services/validators.service";
-import { UserRegisterBody } from "../../interfaces/users/User.interface";
-import { UserRoles } from "../../interfaces/users/User-roles.enum";
+import { UserRegisterBody } from "../../../users/interfaces/User.interface";
+import { UserRoles } from "../../../users/interfaces/User-roles.enum";
 import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
 

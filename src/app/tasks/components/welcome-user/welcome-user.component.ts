@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {UserLoginResponse} from "../../../auth/interfaces/users/User.interface";
+import { Component, inject, OnInit } from '@angular/core';
+import { UserDataWithoutTasks } from "../../../users/interfaces/User.interface";
+import { UsersService } from "../../../users/services/users.service";
+import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 
 @Component({
   selector: 'welcome-user',
@@ -8,20 +10,27 @@ import {UserLoginResponse} from "../../../auth/interfaces/users/User.interface";
 })
 export class WelcomeUserComponent implements OnInit {
 
-  user: UserLoginResponse | null = null;
-  pendingTasks: number = 0;
+  user: UserDataWithoutTasks | null = null;
+  pendingTasks: number = 1;
+  listOfTasks: ListOfTasks[] = [];
 
-  constructor() { }
+  private usersService: UsersService = inject(UsersService);
 
   ngOnInit(): void {
 
-    if (localStorage.getItem('userAuthToken')) {
-      const userAuthToken = localStorage.getItem('userAuthToken');
-      this.user = userAuthToken ? JSON.parse(userAuthToken) : null;
-    }
+    this.usersService.setToken();
 
-    if ( this.user ) {
-      console.log(this.user);
+    if ( this.usersService.token ) {
+
+      this.usersService.getUser()
+        .subscribe( (user: UserDataWithoutTasks) => {
+          this.user = user;
+        });
+
+      this.usersService.getOnlyListOfTasks()
+        .subscribe( (list: ListOfTasks[]) => {
+          this.listOfTasks = list as ListOfTasks[];
+        });
     }
 
   }

@@ -1,0 +1,45 @@
+<p-button
+  (click)="showDialog()"
+  label="&nbsp;Nueva lista de tareas"
+  icon="pi pi-plus"
+  [text]="true"
+  [raised]="true"
+  [style]="{'font-size': '.7rem'}"
+  severity="secondary">
+</p-button>
+
+<p-dialog
+  header="Header"
+  [(visible)]="visible"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '50rem' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+>
+  <ng-template pTemplate="header">
+    <div class="flex flex-column px-4 py-3 gap-2">
+      <span class="font-bold text-900 md:text-2xl white-space-nowrap">Crear lista de tareas</span>
+    </div>
+  </ng-template>
+<ng-template pTemplate="content">
+  <div
+    class="flex flex-column px-4 py-3 gap-3 md:px-8 md:py-5 md:gap-4"
+  >
+    <div class="inline-flex flex-column gap-2">
+      <label for="listName" class="text-primary-50 font-semibold">Nombre</label>
+      <input pInputText id="listName" class="bg-white-alpha-20 border-none p-3 text-primary-50"/>
+    </div>
+    <div class="inline-flex flex-column gap-2">
+      <label for="listDescription" class="text-primary-50 font-semibold">Descripción</label>
+      <input pInputText id="listDescription" class="bg-white-alpha-20 border-none p-3 text-primary-50"/>
+    </div>
+  </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="flex align-items-center px-4 py-3 gap-2 md:px-8 md:py-5 md:gap-4">
+      <p-button label="Guardar" (click)="closeDialog()" [text]="true" styleClass="w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10" class="w-full" ></p-button>
+      <p-button label="Cancelar" (click)="closeDialog()" [text]="true"  styleClass="w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10" class="w-full"></p-button>
+    </div>
+  </ng-template>
+</p-dialog>

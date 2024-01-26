@@ -1,0 +1,27 @@
+.main_container {
+  height: 100%;
+}
+
+.grid {
+  min-height: 100%;
+  display: grid;
+
+  /*Creamos un template-area para el maquetado general del sitio
+      Diseño Mobile-First*/
+  grid-template:
+      "header" 80px
+      "main" 1fr
+      "footer" auto / 1fr;
+}
+
+.header_container {
+  grid-area: header;
+}
+
+.main_container {
+  grid-area: main;
+}
+
+.footer_container {
+  grid-area: footer;
+}

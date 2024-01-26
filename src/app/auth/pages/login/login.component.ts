@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { ValidatorsService } from "../../../shared/services/validators.service";
-import { UserLoginBody, UserLoginResponse } from "../../interfaces/users/User.interface";
+import { UserLoginBody, UserLoginResponse } from "../../../users/interfaces/User.interface";
 import { AuthService } from "../../services/auth.service";
-import { UserMessages } from "../../interfaces/users/User-messages.enum";
+import { UserMessages } from "../../../users/interfaces/User-messages.enum";
 
 import Swal from 'sweetalert2'
 

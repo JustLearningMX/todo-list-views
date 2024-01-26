@@ -1,6 +1,26 @@
-<div *ngIf="!isListOfTasksReady"
-     class="sm:max-w-full lg:max-w-30rem p-2 rounded-lg shadow-lg"
+<div
+     class="container_lists_tasks sm:max-w-full lg:max-w-30rem p-2 rounded-lg shadow-lg"
+     [style]="{'border': '1px solid red'}"
 >
-  <p class="font-semibold text-2xl mb-1 lg:mb-3"> Mis listas </p>
-  <list-skeleton></list-skeleton>
+  <div class="container_lists">
+    <p class="font-semibold text-2xl mb-1 lg:mb-3"> Mis listas </p>
+    <div *ngIf="isFetchingData" >
+      <list-skeleton></list-skeleton>
+    </div>
+    <div *ngIf="listOfTasks.length <= 0" >
+      <p class="font-semibold font-italic"> Sin listas creadas. </p>
+    </div>
+    <div class="container_btnAddList">
+      <modal-add-list></modal-add-list>
+    </div>
+  </div>
+  <div class="container_btnAddTask">
+    <button
+      pButton
+      label="Agregar nueva tarea"
+      [icon]="'pi pi-plus'"
+      iconPos="right"
+      class="w-full">
+    </button>
+  </div>
 </div>

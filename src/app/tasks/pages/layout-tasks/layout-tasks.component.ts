@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'layout-tasks',
   templateUrl: './layout-tasks.component.html',
-  styles: ``
+  styleUrls: ['./layout-tasks.component.css']
 })
 export class LayoutTasksComponent {
 

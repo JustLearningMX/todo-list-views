@@ -10,6 +10,7 @@ import { SharedModule } from "../shared/shared.module";
 import { TasksHeaderComponent } from './components/tasks-header/tasks-header.component';
 import { WelcomeUserComponent } from './components/welcome-user/welcome-user.component';
 import { ListSkeletonComponent } from './components/list-skeleton/list-skeleton.component';
+import { ModalAddListComponent } from './components/modal-add-list/modal-add-list.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ListSkeletonComponent } from './components/list-skeleton/list-skeleton.
     TasksComponent,
     TasksHeaderComponent,
     WelcomeUserComponent,
-    ListSkeletonComponent
+    ListSkeletonComponent,
+    ModalAddListComponent
   ],
     imports: [
         CommonModule,
