@@ -14,14 +14,6 @@ export interface UserLoginResponse {
   token: string
 }
 
-export interface UserLoginResponseError {
-  isError: boolean,
-  timestamp: Date,
-  statusCode: number,
-  path: string,
-  messages: string[]
-}
-
 export interface UserRegisterBody {
   firstName: string,
   lastName: string,
@@ -39,14 +31,6 @@ export interface UserRegisterResponse {
   active: boolean,
   role: UserRoles,
   listTasks: null | [],
-}
-
-export interface UserRegisterResponseError {
-  isError: boolean,
-  statusCode: number,
-  path: string,
-  timestamp: Date,
-  messages: string[],
 }
 
 export interface UserDataWithoutTasks {

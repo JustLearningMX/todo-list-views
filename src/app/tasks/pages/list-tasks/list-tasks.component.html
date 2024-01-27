@@ -10,8 +10,11 @@
     <div *ngIf="listOfTasks.length <= 0" >
       <p class="font-semibold font-italic"> Sin listas creadas. </p>
     </div>
+    <div *ngIf="listOfTasks.length > 0" >
+      <p class="font-semibold font-italic"> Hay {{ listOfTasks.length }} listas de tareas creadas. </p>
+    </div>
     <div class="container_btnAddList">
-      <modal-add-list></modal-add-list>
+      <modal-add-list (onNewListOfTasks)="onNewListOfTasks($event)"></modal-add-list>
     </div>
   </div>
   <div class="container_btnAddTask">

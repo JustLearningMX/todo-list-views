@@ -4,14 +4,13 @@ import {environments} from "../../../environments/environments";
 import {
   UserLoginBody,
   UserLoginResponse,
-  UserLoginResponseError,
   UserRegisterBody,
   UserRegisterResponse,
-  UserRegisterResponseError
 } from "../../users/interfaces/User.interface";
 
 import {catchError, Observable, of, tap, throwError} from "rxjs";
 import {getFirstMessageOfError} from "../../shared/utils/Message-values";
+import {ResponseError} from "../../shared/interfaces/response-error.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +32,9 @@ export class AuthService {
       );
   }
 
-  signup(body: UserRegisterBody): Observable<UserRegisterResponse | UserRegisterResponseError> {
+  signup(body: UserRegisterBody): Observable<UserRegisterResponse | ResponseError> {
 
-    return this.http.post<UserRegisterResponse | UserRegisterResponseError>(`${this.baseUrl}/users`, body)
+    return this.http.post<UserRegisterResponse | ResponseError>(`${this.baseUrl}/users`, body)
       .pipe(
         tap((resp) => {
           const userRegisterRes = resp as UserRegisterResponse;

@@ -17,17 +17,17 @@ export class UsersService {
 
   listOfTasks: ListOfTasks[] = [];
 
-  setToken(): void {
+  get token(): string | null {
+
     if (localStorage.getItem('userAuthToken')) {
       const userAuthToken = localStorage.getItem('userAuthToken');
       const fullUser = userAuthToken ? JSON.parse(userAuthToken) : null;
       const { token } = fullUser;
       this._token = token;
+      return token;
     }
-  }
 
-  get token(): string | null {
-    return this._token;
+    return null;
   }
 
   getUserWithListOfTasksAndTasks(): Observable<UserFullData> {

@@ -18,8 +18,6 @@ export class WelcomeUserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.usersService.setToken();
-
     if ( this.usersService.token ) {
 
       this.usersService.getUser()

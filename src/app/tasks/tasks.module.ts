@@ -11,6 +11,7 @@ import { TasksHeaderComponent } from './components/tasks-header/tasks-header.com
 import { WelcomeUserComponent } from './components/welcome-user/welcome-user.component';
 import { ListSkeletonComponent } from './components/list-skeleton/list-skeleton.component';
 import { ModalAddListComponent } from './components/modal-add-list/modal-add-list.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -23,11 +24,12 @@ import { ModalAddListComponent } from './components/modal-add-list/modal-add-lis
     ListSkeletonComponent,
     ModalAddListComponent
   ],
-    imports: [
-        CommonModule,
-        TasksRoutingModule,
-        PrimeNgModule,
-        SharedModule,
-    ]
+  imports: [
+    CommonModule,
+    TasksRoutingModule,
+    PrimeNgModule,
+    SharedModule,
+    ReactiveFormsModule
+  ]
 })
 export class TasksModule { }

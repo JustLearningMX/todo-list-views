@@ -16,7 +16,7 @@ export class ListTasksComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if ( this.usersService.token ) {
+  if ( this.usersService.token ) {
       this.usersService.getOnlyListOfTasks()
         .subscribe( (list: ListOfTasks[]) => {
           this.listOfTasks = list as ListOfTasks[];
@@ -25,5 +25,9 @@ export class ListTasksComponent implements OnInit {
 
     this.isFetchingData = false;
 
+  }
+
+  onNewListOfTasks(listOfTasks: ListOfTasks) {
+    this.listOfTasks.push(listOfTasks);
   }
 }

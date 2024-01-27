@@ -1,5 +1,4 @@
-import {TaskState} from "./task-state.enum";
-import {TaskPriority} from "./task-priority.enum";
+import { Task } from "./task.interface";
 
 export interface ListOfTasks {
   "id": number,
@@ -9,11 +8,9 @@ export interface ListOfTasks {
   "tasks": Task[]
 }
 
-export interface Task {
-  "id": number,
-  "title": string,
+export interface ListOfTasksRequest {
+  "name": string,
   "description": string,
-  "expirationDate": Date,
-  "state": TaskState,
-  "priority": TaskPriority
+  "active": boolean,
+  "tasks": Task[] | null;
 }
