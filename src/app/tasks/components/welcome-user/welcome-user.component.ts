@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { UserDataWithoutTasks } from "../../../users/interfaces/User.interface";
 import { UsersService } from "../../../users/services/users.service";
 import { ListOfTasks } from "../../interfaces/list-tasks.interface";
+import {User} from "../../../users/classes/User.class";
 
 @Component({
   selector: 'welcome-user',
@@ -10,7 +11,7 @@ import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 })
 export class WelcomeUserComponent implements OnInit {
 
-  user: UserDataWithoutTasks | null = null;
+  user: User | null = null;
   pendingTasks: number = 1;
   listOfTasks: ListOfTasks[] = [];
 
@@ -18,18 +19,8 @@ export class WelcomeUserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if ( this.usersService.token ) {
-
-      this.usersService.getUser()
-        .subscribe( (user: UserDataWithoutTasks) => {
-          this.user = user;
-        });
-
-      this.usersService.getOnlyListOfTasks()
-        .subscribe( (list: ListOfTasks[]) => {
-          this.listOfTasks = list as ListOfTasks[];
-        });
-    }
+    this.user = this.usersService.user;
+    this.listOfTasks = this.usersService.listOfTasks;
 
   }
 

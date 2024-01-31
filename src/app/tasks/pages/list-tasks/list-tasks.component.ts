@@ -17,14 +17,10 @@ export class ListTasksComponent implements OnInit {
   ngOnInit(): void {
 
   if ( this.usersService.token ) {
-      this.usersService.getOnlyListOfTasks()
-        .subscribe( (list: ListOfTasks[]) => {
-          this.listOfTasks = list as ListOfTasks[];
-        });
+    this.listOfTasks = this.usersService.listOfTasks;
     }
 
     this.isFetchingData = false;
-
   }
 
   onNewListOfTasks(listOfTasks: ListOfTasks) {
