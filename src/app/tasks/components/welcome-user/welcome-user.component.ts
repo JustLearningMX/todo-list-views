@@ -3,6 +3,7 @@ import { UserDataWithoutTasks } from "../../../users/interfaces/User.interface";
 import { UsersService } from "../../../users/services/users.service";
 import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 import {User} from "../../../users/classes/User.class";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'welcome-user',
@@ -19,8 +20,20 @@ export class WelcomeUserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.user = this.usersService.user;
-    this.listOfTasks = this.usersService.listOfTasks;
+    this.usersService
+      .getUserWithListOfTasksAndTasks().subscribe(  {
+        next: (user: User) => {
+          this.user = user;
+          this.listOfTasks = user.listTasks;
+        },
+        error: (err: string): void => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err
+          });
+        }
+      });
 
   }
 

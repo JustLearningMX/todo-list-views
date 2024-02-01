@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 import { UsersService } from "../../../users/services/users.service";
+import {User} from "../../../users/classes/User.class";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'list-tasks',
@@ -16,9 +18,17 @@ export class ListTasksComponent implements OnInit {
 
   ngOnInit(): void {
 
-  if ( this.usersService.token ) {
-    this.listOfTasks = this.usersService.listOfTasks;
-    }
+    this.usersService
+      .getUserWithListOfTasksAndTasks().subscribe({
+        next: (user: User) => this.listOfTasks = user.listTasks,
+        error: (err: string): void => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err
+          });
+        }
+      });
 
     this.isFetchingData = false;
   }

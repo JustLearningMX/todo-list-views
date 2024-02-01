@@ -1,4 +1,4 @@
-<div class="card flex flex-column line-height-2">
-  <p class="font-medium font-semibold">{{user ? 'Hola' : 'Cargando...'}} {{ user?.firstName | titlecase }} {{ user?.lastName | titlecase }}</p>
-  <p class="font-italic text-bluegray-400"> {{ listOfTasks.length <= 0 ? 0 : pendingTasks }} tareas pendientes</p>
+<div class="card flex flex-column line-height-2 ">
+  <p class="font-semibold md:font-bold">{{user ? 'Hola' : 'Cargando...'}} {{ user?.firstName | titlecase }} {{ user?.lastName | titlecase }}</p>
+  <p class="font-italic font-light text-bluegray-400"> {{ listOfTasks.length <= 0 ? 0 : pendingTasks }} tareas pendientes</p>
 </div>

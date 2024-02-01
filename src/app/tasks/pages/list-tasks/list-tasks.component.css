@@ -1,5 +1,5 @@
 .container_lists_tasks {
-  height: 100%;
+  min-height: 80dvh;
   display: grid;
   grid-template:
     "lists" 1fr

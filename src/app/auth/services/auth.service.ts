@@ -11,6 +11,8 @@ import {
 import {catchError, Observable, of, tap, throwError} from "rxjs";
 import {getFirstMessageOfError} from "../../shared/utils/Message-values";
 import {ResponseError} from "../../shared/interfaces/response-error.interface";
+import {LocalStorage} from "../interfaces/LocalStorage.interfaces";
+import {UsersService} from "../../users/services/users.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +21,13 @@ export class AuthService {
 
   private baseUrl: string = environments.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient ) { }
 
   login(body: UserLoginBody): Observable<UserLoginResponse> {
 
     return this.http.post<UserLoginResponse>(`${this.baseUrl}/users/auth`, body)
       .pipe(
-        tap( user => localStorage.setItem('userAuthToken', JSON.stringify(user)) ),
+        tap( user => localStorage.setItem(LocalStorage.UserAuthToken, JSON.stringify(user)) ),
         catchError(({ error }) => {
           return throwError( () => getFirstMessageOfError(error.messages));
         })
@@ -48,12 +50,13 @@ export class AuthService {
 
   checkAuthentication(): Observable<boolean> {
 
-    return !localStorage.getItem('userAuthToken') ? of(false) : of(true);
+    return !localStorage.getItem(LocalStorage.UserAuthToken) ? of(false) : of(true);
 
   }
 
   logout() {
-    localStorage.removeItem('userAuthToken');
+    localStorage.removeItem(LocalStorage.UserAuthToken);
+    localStorage.removeItem(LocalStorage.User);
   }
 
 }

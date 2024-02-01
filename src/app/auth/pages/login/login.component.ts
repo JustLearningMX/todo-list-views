@@ -28,8 +28,8 @@ export class LoginComponent {
   ) {}
 
   myForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    email: ['danny@gmail.com', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
+    password: ['12345678', [Validators.required, Validators.minLength(8)]],
   });
 
   onSubmit() {

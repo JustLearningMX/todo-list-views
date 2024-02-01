@@ -6,6 +6,7 @@ import {ValidatorsService} from "../../../shared/services/validators.service";
 import {ListTasksService} from "../../services/list-tasks.service";
 
 import Swal from 'sweetalert2'
+import {UsersService} from "../../../users/services/users.service";
 
 @Component({
   selector: 'modal-add-list',
@@ -17,7 +18,8 @@ export class ModalAddListComponent {
   constructor(
     private fb: FormBuilder,
     public validatorService: ValidatorsService,
-    private listTasksService: ListTasksService
+    private listTasksService: ListTasksService,
+    private usersService: UsersService
   ) {}
 
   private listOfTasksReq: ListOfTasksRequest = {
@@ -50,14 +52,15 @@ export class ModalAddListComponent {
 
     this.listTasksService.createListTasks(this.listOfTasksReq)
       .subscribe({
-        next: (resp: ListOfTasks ): void => {
-          const respSuccess = resp as ListOfTasks;
+        next: (resp ): void => {
+          const respSuccess = resp;
           Swal.fire({
             icon: 'success',
             title: 'Lista creada',
             text: `La lista ${respSuccess.name} se ha creado correctamente`
           });
 
+          this.usersService.getUserWithListOfTasksAndTasks().subscribe();
           this.onNewListOfTasks.emit(respSuccess);
           this.myForm.reset();
           this.visible = false;

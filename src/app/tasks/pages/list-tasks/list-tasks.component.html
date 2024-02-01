@@ -1,23 +1,30 @@
 <div
-     class="container_lists_tasks sm:max-w-full lg:max-w-30rem p-2 rounded-lg shadow-lg"
-     [style]="{'border': '1px solid red'}"
+     class="container_lists_tasks p-2 rounded-lg shadow-lg"
 >
   <div class="container_lists">
-    <p class="font-semibold text-2xl mb-1 lg:mb-3"> Mis listas </p>
+
+    <div class="px-1 py-2 md:px-5 lg:px-6">
+      <p class="font-semibold text-2xl mb-1 lg:mb-3"> Mis listas </p>
+    </div>
+
     <div *ngIf="isFetchingData" >
       <list-skeleton></list-skeleton>
     </div>
-    <div *ngIf="listOfTasks.length <= 0" >
+
+    <div *ngIf="!isFetchingData && listOfTasks.length <= 0" >
       <p class="font-semibold font-italic"> Sin listas creadas. </p>
     </div>
+
     <div *ngIf="listOfTasks.length > 0" >
-      <p class="font-semibold font-italic"> Hay {{ listOfTasks.length }} listas de tareas creadas. </p>
+      <list-grid [listOfTasks]="listOfTasks"></list-grid>
     </div>
-    <div class="container_btnAddList">
+
+    <div class="container_btnAddList px-1 py-2 md:px-5 lg:px-6">
       <modal-add-list (onNewListOfTasks)="onNewListOfTasks($event)"></modal-add-list>
     </div>
   </div>
-  <div class="container_btnAddTask">
+
+  <div class="container_btnAddTask px-1 py-2 md:px-5 lg:px-6">
     <button
       pButton
       label="Agregar nueva tarea"

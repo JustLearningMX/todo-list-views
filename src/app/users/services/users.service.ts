@@ -1,10 +1,11 @@
-import {inject, Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environments} from "../../../environments/environments";
-import {UserDataWithoutTasks, UserFullData} from "../interfaces/User.interface";
-import {map, Observable, tap} from "rxjs";
-import {ListOfTasks} from "../../tasks/interfaces/list-tasks.interface";
-import {User} from "../classes/User.class";
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { catchError, Observable, tap, throwError } from "rxjs";
+import { environments } from "../../../environments/environments";
+
+import { User } from "../classes/User.class";
+import { LocalStorage } from "../../auth/interfaces/LocalStorage.interfaces";
+import { getFirstMessageOfError } from "../../shared/utils/Message-values";
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,14 @@ export class UsersService {
 
   private http: HttpClient = inject(HttpClient);
   private baseUrl: string = environments.baseUrl;
-
-  private _token: string | null = null;
-
-  private _listOfTasks: ListOfTasks[] = [];
+  private _token: string | null = this.token;
 
   get token(): string | null {
 
-    if (localStorage.getItem('userAuthToken')) {
-      const userAuthToken = localStorage.getItem('userAuthToken');
-      const fullUser = userAuthToken ? JSON.parse(userAuthToken) : null;
-      const { token } = fullUser;
+    if (localStorage.getItem(LocalStorage.UserAuthToken)) {
+      const userAuthToken = localStorage.getItem(LocalStorage.UserAuthToken);
+      const fullUserAuth = userAuthToken ? JSON.parse(userAuthToken) : null;
+      const { token } = fullUserAuth;
       this._token = token;
       return token;
     }
@@ -31,37 +29,17 @@ export class UsersService {
     return null;
   }
 
-  get user(): User | null {
+  getUserWithListOfTasksAndTasks(): Observable<User> {
 
-    if (!localStorage.getItem('user')) {
-      this.getUserWithListOfTasksAndTasks();
-    }
-
-    const userLS = localStorage.getItem('user');
-    return userLS ? JSON.parse(userLS) : null;
-  }
-
-  get listOfTasks(): ListOfTasks[] {
-    if (!localStorage.getItem('user')) {
-      this.getUserWithListOfTasksAndTasks();
-    }
-
-    const user: User = this.user as User;
-    this._listOfTasks = user.listTasks;
-
-    return this._listOfTasks;
-  }
-
-  getUserWithListOfTasksAndTasks(): Observable<UserFullData> {
     const headers = {
       Authorization: `Bearer ${this._token}`
     }
-    return this.http.get<UserFullData>(`${this.baseUrl}/users/me`, { headers })
+    return this.http.get<User>(`${this.baseUrl}/users/me`, { headers })
       .pipe(
-        tap( data => {
-          const user: User = data as User;
-          localStorage.setItem('user', JSON.stringify(user));
-        }),
+        tap( data => { localStorage.setItem(LocalStorage.User, JSON.stringify(data)) } ),
+        catchError(({ error }) => {
+          return throwError( () => getFirstMessageOfError(error.messages));
+        })
       );
   }
 }

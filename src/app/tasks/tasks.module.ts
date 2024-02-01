@@ -12,6 +12,9 @@ import { WelcomeUserComponent } from './components/welcome-user/welcome-user.com
 import { ListSkeletonComponent } from './components/list-skeleton/list-skeleton.component';
 import { ModalAddListComponent } from './components/modal-add-list/modal-add-list.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ListGridComponent } from './components/list-grid/list-grid.component';
+import { ListCardComponent } from './components/list-card/list-card.component';
+import { ModalDeleteListComponent } from './components/modal-delete-list/modal-delete-list.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     TasksHeaderComponent,
     WelcomeUserComponent,
     ListSkeletonComponent,
-    ModalAddListComponent
+    ModalAddListComponent,
+    ListGridComponent,
+    ListCardComponent,
+    ModalDeleteListComponent
   ],
   imports: [
     CommonModule,

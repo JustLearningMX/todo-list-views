@@ -1,23 +1,25 @@
-<div class="card" >
-<p-toolbar [style]="{'padding': '1rem .5rem'}">
-    <ng-template pTemplate="start">
-      <a class="flex flex-wrap align-items-center gap-2" [routerLink]="'/'">
-        <img src="./assets/images/note-task-logo2.png" alt="logo" height="40" width="40">
-        <p class="font-bold">To-Do Tareas </p>
-      </a>
-    </ng-template>
+<div class="card">
+    <p-toolbar [style]="{'padding': '1rem .5rem'}">
+      <ng-template pTemplate="start">
+        <a class="flex flex-wrap align-items-center gap-2" [routerLink]="'/'">
+          <div class="h-2rem w-2rem md:h-3rem md:w-3rem">
+            <img src="./assets/images/note-task-logo2.png" alt="logo" height="100%" width="100%">
+          </div>
+          <p class="font-semibold md:font-bold">To-Do Tareas </p>
+        </a>
+      </ng-template>
 
-    <ng-template pTemplate="center">
-      <welcome-user></welcome-user>
-    </ng-template>
+      <ng-template pTemplate="center">
+        <welcome-user></welcome-user>
+      </ng-template>
 
-    <ng-template pTemplate="end">
-      <p-button
-        icon="pi pi-sign-out"
-        severity="secondary"
-        (click)="logout()"
-        [rounded]="true"
-      ></p-button>
-    </ng-template>
-</p-toolbar>
+      <ng-template pTemplate="end">
+        <p-button
+          icon="pi pi-sign-out"
+          severity="secondary"
+          (click)="logout()"
+          [rounded]="true"
+        ></p-button>
+      </ng-template>
+    </p-toolbar>
 </div>
