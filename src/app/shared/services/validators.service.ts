@@ -10,6 +10,7 @@ export class ValidatorsService {
 
   firstNameAndLastnamePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+  notBlankPattern: string = '^\s*\S.*\S\s*$';
 
   isValidField(myForm: FormGroup, field: string): boolean | null {
     return myForm.controls[field].errors && myForm.controls[field].touched;

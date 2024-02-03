@@ -9,6 +9,7 @@ import { UsersService } from "../../users/services/users.service";
 import { AuthService } from "../../auth/services/auth.service";
 import { getFirstMessageOfError } from "../../shared/utils/Message-values";
 import {DeleteResponse} from "../../shared/interfaces/delete.interface";
+import {TypeCrudEnum} from "../interfaces/type-crud-enum";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class ListTasksService {
   private token: string | null = this.usersService.token
   private _listOfTasks: ListOfTasks[] = [];
   private _listTasks: ListOfTasks | null = null;
+  private _typeOfCrud: TypeCrudEnum = TypeCrudEnum.NONE;
 
   baseUrl: string = environments.baseUrl;
 
@@ -42,6 +44,14 @@ get listTasks(): ListOfTasks {
 
 set listTasks(value: ListOfTasks) {
   this._listTasks = value;
+}
+
+get typeOfCrud(): TypeCrudEnum {
+  return this._typeOfCrud;
+}
+
+set typeOfCrud(value: TypeCrudEnum) {
+  this._typeOfCrud = value;
 }
 
   create(body: ListOfTasksRequest ): Observable<ListOfTasks> {

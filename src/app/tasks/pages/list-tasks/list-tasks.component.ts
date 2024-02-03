@@ -1,9 +1,11 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+
+import Swal from "sweetalert2";
+
 import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 import { UsersService } from "../../../users/services/users.service";
-import {User} from "../../../users/classes/User.class";
-import Swal from "sweetalert2";
-import {ListTasksService} from "../../services/list-tasks.service";
+import { User } from "../../../users/classes/User.class";
+import { ListTasksService } from "../../services/list-tasks.service";
 
 @Component({
   selector: 'list-tasks',
@@ -39,9 +41,5 @@ export class ListTasksComponent implements OnInit {
   get listOfTasks(): ListOfTasks[] {
     return this.listOfTasksService.listOfTasks;
   }
-
-  //Add a new list of tasks to the service
-  onNewListOfTasks(listOfTasks: ListOfTasks): void {
-    this.listOfTasksService.listOfTasks.push(listOfTasks);
-  }
+  
 }

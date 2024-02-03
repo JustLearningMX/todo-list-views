@@ -15,6 +15,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { ListGridComponent } from './components/list-grid/list-grid.component';
 import { ListCardComponent } from './components/list-card/list-card.component';
 import { ModalDeleteListComponent } from './components/modal-delete-list/modal-delete-list.component';
+import { ModalEditListComponent } from './components/modal-edit-list/modal-edit-list.component';
+import { FormListTasksComponent } from './components/form-list-tasks/form-list-tasks.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ModalDeleteListComponent } from './components/modal-delete-list/modal-d
     ModalAddListComponent,
     ListGridComponent,
     ListCardComponent,
-    ModalDeleteListComponent
+    ModalDeleteListComponent,
+    ModalEditListComponent,
+    FormListTasksComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,6 @@
 <div class="card flex flex-column line-height-2 ">
-  <p class="font-semibold md:font-bold">{{user ? 'Hola' : 'Cargando...'}} {{ user?.firstName | titlecase }} {{ user?.lastName | titlecase }}</p>
-  <p class="font-italic font-light text-bluegray-400"> {{ listOfTasks.length <= 0 ? 0 : pendingTasks }} tareas pendientes</p>
+  <p class="font-semibold md:font-bold">
+    {{user ? 'Hola' : 'Cargando...'}} {{ user?.firstName | titlecase }}
+  </p>
+  <p *ngIf="user" class="font-italic font-light text-bluegray-400"> {{ message }} </p>
 </div>

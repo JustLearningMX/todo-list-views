@@ -8,14 +8,14 @@ import Swal from "sweetalert2";
 @Component({
   selector: 'welcome-user',
   templateUrl: './welcome-user.component.html',
-  styles: ``
+  styleUrls: ['./welcome-user.component.css']
 })
 export class WelcomeUserComponent implements OnInit {
 
   user: User | null = null;
   pendingTasks: number = 1;
   listOfTasks: ListOfTasks[] = [];
-
+  message: string = this.pendingTasks < 1 ? 'Sin tareas pendientes' : this.pendingTasks === 1 ? '1 tarea pendiente' : `${this.pendingTasks} tareas pendientes`;
   private usersService: UsersService = inject(UsersService);
 
   ngOnInit(): void {

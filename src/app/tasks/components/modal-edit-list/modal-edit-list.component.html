@@ -1,11 +1,10 @@
 <p-button
   (click)="showDialog()"
-  label="&nbsp;Nueva lista de tareas"
-  icon="pi pi-plus"
+  icon="pi pi-file-edit"
   [text]="true"
   [raised]="true"
-  [style]="{'font-size': '.7rem'}"
-  severity="secondary">
+  severity="success"
+>
 </p-button>
 
 <p-dialog
@@ -20,7 +19,7 @@
 
   <ng-template pTemplate="header">
     <div class="flex flex-column px-4 py-3 gap-2">
-      <span class="font-bold text-900 md:text-2xl white-space-nowrap">Crear lista de tareas</span>
+      <span class="font-bold text-900 md:text-2xl white-space-nowrap">Modificar lista de tareas</span>
     </div>
   </ng-template>
 
@@ -28,6 +27,7 @@
     <form-list-tasks
       (onChangeModalVisibility)="cancelDialog($event)"
     >
+<!--      [listOfTasksReq]="listTasks"-->
     </form-list-tasks>
   </ng-template>
 
