@@ -1,8 +1,8 @@
 <div class="surface-card shadow-2 p-3 border-round">
   <div class="flex justify-content-between mb-3">
     <div>
-      <span class="block text-500 font-medium mb-3">{{ listOfTask.name }}</span>
-      <div class="text-800 font-medium text-lg">{{ listOfTask.description }}</div>
+      <span class="block text-500 font-medium mb-3">{{ listTasks.name }}</span>
+      <div class="text-800 font-medium text-lg">{{ listTasks.description }}</div>
     </div>
     <div class="flex gap-3 md:gap-5">
       <div class="flex align-items-center justify-content-center border-round" style="width:2rem;height:2rem">
@@ -10,10 +10,10 @@
       </div>
       <div class="flex align-items-center justify-content-center border-round" style="width:2rem;height:2rem">
 <!--        <i class="pi pi-delete-left text-red-500 text-xl"></i>-->
-        <modal-delete-list [listOfTask]="listOfTask" ></modal-delete-list>
+        <modal-delete-list></modal-delete-list>
       </div>
     </div>
   </div>
-  <span class="text-green-500 font-medium">{{ listOfTask.tasks ? listOfTask.tasks.length : 0 }} </span>
+  <span class="text-green-500 font-medium">{{ listTasks.tasks ? listTasks.tasks.length : 0 }} </span>
   <span class="text-500">tareas</span>
 </div>

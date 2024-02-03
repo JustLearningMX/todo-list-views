@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import { ListOfTasks } from "../../interfaces/list-tasks.interface";
+import {ListTasksService} from "../../services/list-tasks.service";
 
 @Component({
   selector: 'list-grid',
@@ -8,7 +9,9 @@ import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 })
 export class ListGridComponent {
 
-  @Input()
-  listOfTasks: ListOfTasks[] = [];
+  constructor(private listTasksService: ListTasksService) { }
 
+  get listOfTasks(): ListOfTasks[] {
+    return this.listTasksService.listOfTasks;
+  }
 }

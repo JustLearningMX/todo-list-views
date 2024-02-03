@@ -50,18 +50,19 @@ export class ModalAddListComponent {
     this.listOfTasksReq.active = true;
     this.listOfTasksReq.tasks = null;
 
-    this.listTasksService.createListTasks(this.listOfTasksReq)
+    this.listTasksService.create(this.listOfTasksReq)
       .subscribe({
         next: (resp ): void => {
-          const respSuccess = resp;
+
           Swal.fire({
             icon: 'success',
             title: 'Lista creada',
-            text: `La lista ${respSuccess.name} se ha creado correctamente`
+            text: `La lista ${resp.name} se ha creado correctamente`
           });
 
           this.usersService.getUserWithListOfTasksAndTasks().subscribe();
-          this.onNewListOfTasks.emit(respSuccess);
+          this.listTasksService.listOfTasks = [ ...this.listTasksService.listOfTasks, resp ];
+
           this.myForm.reset();
           this.visible = false;
         },
