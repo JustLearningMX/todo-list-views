@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {Router} from "@angular/router";
 import { environments } from "../../../environments/environments";
-import {catchError, Observable, tap, throwError} from "rxjs";
+import {catchError, map, Observable, of, tap, throwError} from "rxjs";
 
 import { ListOfTasks, ListOfTasksRequest } from "../interfaces/list-tasks.interface";
 import { UsersService } from "../../users/services/users.service";
@@ -10,6 +10,7 @@ import { AuthService } from "../../auth/services/auth.service";
 import { getFirstMessageOfError } from "../../shared/utils/Message-values";
 import {DeleteResponse} from "../../shared/interfaces/delete.interface";
 import {TypeCrudEnum} from "../interfaces/type-crud-enum";
+import {User} from "../../users/classes/User.class";
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,14 @@ get listTasks(): ListOfTasks {
 
 set listTasks(value: ListOfTasks) {
   this._listTasks = value;
+}
+
+getListById(id: number):Observable<ListOfTasks> {
+  return this.usersService.getUserWithListOfTasksAndTasks()
+    .pipe(
+      map( data => data.listTasks),
+      map( listTasks => listTasks.filter( list => list.id === Number(id) )[0]),
+    )
 }
 
 get typeOfCrud(): TypeCrudEnum {

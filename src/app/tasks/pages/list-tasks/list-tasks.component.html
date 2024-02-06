@@ -15,7 +15,7 @@
       <p class="font-semibold font-italic"> Sin listas creadas. </p>
     </div>
 
-    <div *ngIf="listOfTasks.length > 0" >
+    <div *ngIf="!isFetchingData && listOfTasks.length > 0" >
       <list-grid></list-grid>
     </div>
 

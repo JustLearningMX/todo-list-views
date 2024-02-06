@@ -1,1 +1,18 @@
-<p>tasks works!</p>
+<div
+  class="container_lists_tasks p-2 rounded-lg shadow-lg"
+>
+  <div class="container_lists">
+    <div class="px-1 py-2 md:px-5 lg:px-6">
+      <p class="font-semibold text-2xl mb-1 lg:mb-3"> {{ listTasks.name | titlecase }} </p>
+
+      <div *ngIf="isFetchingData" >
+        <list-skeleton></list-skeleton>
+      </div>
+
+      <div *ngIf="!isFetchingData && tasks.length <= 0" >
+        <p class="font-semibold font-italic"> Sin tareas creadas. </p>
+      </div>
+
+    </div>
+  </div>
+</div>

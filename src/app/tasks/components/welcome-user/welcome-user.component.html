@@ -2,5 +2,5 @@
   <p class="font-semibold md:font-bold">
     {{user ? 'Hola' : 'Cargando...'}} {{ user?.firstName | titlecase }}
   </p>
-  <p *ngIf="user" class="font-italic font-light text-bluegray-400"> {{ message }} </p>
+  <p *ngIf="user && message.length > 0" class="font-italic font-light text-bluegray-400"> {{ message }} </p>
 </div>

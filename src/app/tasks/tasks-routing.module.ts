@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: LayoutTasksComponent,
     children: [
       { path: 'listado', component: ListTasksComponent },
-      { path: 'listado/tarea', component: TasksComponent },
+      { path: 'listado/:id', component: TasksComponent },
       { path: '**', redirectTo: 'listado' },
     ]
   }
