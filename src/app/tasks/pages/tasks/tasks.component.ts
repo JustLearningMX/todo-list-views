@@ -1,10 +1,11 @@
-import {Component, inject, OnInit} from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 import { switchMap } from "rxjs";
 
 import { ListTasksService } from "../../services/list-tasks.service";
 import { ListOfTasks } from "../../interfaces/list-tasks.interface";
 import { Task } from "../../interfaces/task.interface";
+import { TasksService } from "../../services/tasks.service";
 
 @Component({
   selector: 'tasks-page',
@@ -14,11 +15,10 @@ import { Task } from "../../interfaces/task.interface";
 export class TasksComponent implements OnInit {
 
   private listTasksService: ListTasksService = inject(ListTasksService);
+  private taskService: TasksService = inject(TasksService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
-  listTasks: ListOfTasks = {} as ListOfTasks;
-  tasks: Task[] = [];
-  isTasksEmpty: boolean = !this.tasks || this.tasks.length <= 0;
+  private router: Router = inject(Router);
 
   isFetchingData: boolean = true;
 
@@ -31,11 +31,26 @@ export class TasksComponent implements OnInit {
         switchMap( ({ id }) => this.listTasksService.getListById(id) ),
       )
       .subscribe( (list) => {
-        this.listTasks = list;
-        this.tasks = list.tasks
+
+        if(!list) {
+          this.router.navigateByUrl('/mis-listas');
+          this.isFetchingData = false;
+          return;
+        }
+
+        this.listTasksService.listTasks = list;
+        this.taskService.tasks = list.tasks;
         this.isFetchingData = false;
       } );
 
+  }
+
+  get listTasks(): ListOfTasks {
+    return this.listTasksService.listTasks;
+  }
+
+  get tasks(): Task[] {
+    return this.taskService.tasks;
   }
 
 }

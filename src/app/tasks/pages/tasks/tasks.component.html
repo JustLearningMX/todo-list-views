@@ -1,18 +1,27 @@
 <div
   class="container_lists_tasks p-2 rounded-lg shadow-lg"
 >
-  <div class="container_lists">
+  <div class="container_tasks">
     <div class="px-1 py-2 md:px-5 lg:px-6">
-      <p class="font-semibold text-2xl mb-1 lg:mb-3"> {{ listTasks.name | titlecase }} </p>
+      <p class="font-semibold text-2xl mb-1 lg:mb-3" [style]="{'text-align': 'center'}"> {{ listTasks.name | titlecase }} </p>
 
       <div *ngIf="isFetchingData" >
         <list-skeleton></list-skeleton>
       </div>
 
       <div *ngIf="!isFetchingData && tasks.length <= 0" >
-        <p class="font-semibold font-italic"> Sin tareas creadas. </p>
+        <p class="font-semibold font-italic mt-3"> Sin tareas creadas. </p>
+      </div>
+
+      <div *ngIf="!isFetchingData && tasks.length > 0" >
+        <tasks-grid [tasks]="tasks"></tasks-grid>
       </div>
 
     </div>
   </div>
+
+  <div class="container_btnAddTask px-1 py-2 md:px-5 lg:px-6">
+    <modal-add-task></modal-add-task>
+  </div>
+
 </div>

@@ -6,7 +6,7 @@ import { AuthService } from "../../../auth/services/auth.service";
 @Component({
   selector: 'tasks-header',
   templateUrl: './tasks-header.component.html',
-  styles: ``
+  styleUrl: `./tasks-header.component.css`
 })
 export class TasksHeaderComponent {
 

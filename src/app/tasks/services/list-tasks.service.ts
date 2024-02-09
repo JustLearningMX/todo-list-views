@@ -10,7 +10,6 @@ import { AuthService } from "../../auth/services/auth.service";
 import { getFirstMessageOfError } from "../../shared/utils/Message-values";
 import {DeleteResponse} from "../../shared/interfaces/delete.interface";
 import {TypeCrudEnum} from "../interfaces/type-crud-enum";
-import {User} from "../../users/classes/User.class";
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +23,12 @@ export class ListTasksService {
     private router: Router
   ) { }
 
-  private token: string | null = this.usersService.token
+  private token: string | null = this.usersService.token;
   private _listOfTasks: ListOfTasks[] = [];
   private _listTasks: ListOfTasks | null = null;
   private _typeOfCrud: TypeCrudEnum = TypeCrudEnum.NONE;
 
-  baseUrl: string = environments.baseUrl;
+  private baseUrl: string = environments.baseUrl;
 
 get listOfTasks(): ListOfTasks[] {
   return this._listOfTasks.filter( (list) => list.active);
@@ -75,7 +74,7 @@ set typeOfCrud(value: TypeCrudEnum) {
     return this.http.post<ListOfTasks>(this.baseUrl + '/list-tasks', body, { headers })
       .pipe(
         catchError(({ error }) => {
-          return throwError( () => error.messages ? getFirstMessageOfError(error.messages) : 'Error en el servidor al eliminar la lista');
+          return throwError( () => error.messages ? getFirstMessageOfError(error.messages) : 'Error en el servidor al crear la lista');
         })
       );
   }

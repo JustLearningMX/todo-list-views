@@ -6,6 +6,8 @@ import {ToolbarModule} from "primeng/toolbar";
 import {InputTextModule} from "primeng/inputtext";
 import {SkeletonModule} from "primeng/skeleton";
 import {DialogModule} from "primeng/dialog";
+import {DropdownModule} from "primeng/dropdown";
+import {CalendarModule} from "primeng/calendar";
 
 @NgModule({
   declarations: [],
@@ -15,7 +17,9 @@ import {DialogModule} from "primeng/dialog";
     ToolbarModule,
     InputTextModule,
     SkeletonModule,
-    DialogModule
+    DialogModule,
+    DropdownModule,
+    CalendarModule
   ],
 })
 export class PrimeNgModule { }

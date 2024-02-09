@@ -65,7 +65,7 @@
         },
         {
           "file": "angular.json",
-          "hash": "9911926140632255511"
+          "hash": "11128152329676213881"
         },
         {
           "file": "package-lock.json",
@@ -122,7 +122,7 @@
         },
         {
           "file": "src/app/app.component.ts",
-          "hash": "15024200397030695373",
+          "hash": "16341378412876759082",
           "deps": [
             "npm:@angular/core",
             "npm:primeng"
@@ -188,6 +188,10 @@
           ]
         },
         {
+          "file": "src/app/auth/interfaces/LocalStorage.interfaces.ts",
+          "hash": "8837096106086727565"
+        },
+        {
           "file": "src/app/auth/pages/layout/layout.component.html",
           "hash": "6760655912894793611"
         },
@@ -208,7 +212,7 @@
         },
         {
           "file": "src/app/auth/pages/login/login.component.ts",
-          "hash": "2434866640492762693",
+          "hash": "12618219734617504175",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/forms",
@@ -236,7 +240,7 @@
         },
         {
           "file": "src/app/auth/services/auth.service.ts",
-          "hash": "2754311544318350931",
+          "hash": "2875058971699516607",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -245,7 +249,7 @@
         },
         {
           "file": "src/app/prime-ng/prime-ng.module.ts",
-          "hash": "10524180395641964865",
+          "hash": "13366009480665636663",
           "deps": [
             "npm:@angular/core",
             "npm:primeng"
@@ -253,7 +257,7 @@
         },
         {
           "file": "src/app/shared/components/footer/footer.component.html",
-          "hash": "7828837821938410319"
+          "hash": "6041101154547477043"
         },
         {
           "file": "src/app/shared/components/footer/footer.component.ts",
@@ -261,6 +265,14 @@
           "deps": [
             "npm:@angular/core"
           ]
+        },
+        {
+          "file": "src/app/shared/interfaces/delete.interface.ts",
+          "hash": "10904247116507180762"
+        },
+        {
+          "file": "src/app/shared/interfaces/response-error.interface.ts",
+          "hash": "14524715867040566342"
         },
         {
           "file": "src/app/shared/pages/error404/error404.component.css",
@@ -293,8 +305,16 @@
           ]
         },
         {
+          "file": "src/app/shared/services/get-params.service.ts",
+          "hash": "17414889836758387984",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
           "file": "src/app/shared/services/validators.service.ts",
-          "hash": "1652648071972964641",
+          "hash": "16603864811077760033",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/forms"
@@ -314,6 +334,58 @@
           "hash": "12196941376377226244"
         },
         {
+          "file": "src/app/tasks/components/form-list-tasks/form-list-tasks.component.html",
+          "hash": "17744848329815066445"
+        },
+        {
+          "file": "src/app/tasks/components/form-list-tasks/form-list-tasks.component.ts",
+          "hash": "2147007331517536702",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:sweetalert2"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/form-tasks/form-tasks.component.html",
+          "hash": "8182986038893610806"
+        },
+        {
+          "file": "src/app/tasks/components/form-tasks/form-tasks.component.ts",
+          "hash": "16098945960349686604",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:sweetalert2"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/list-card/list-card.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/tasks/components/list-card/list-card.component.html",
+          "hash": "9700369056540654861"
+        },
+        {
+          "file": "src/app/tasks/components/list-card/list-card.component.ts",
+          "hash": "2398374709602175866",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/list-grid/list-grid.component.html",
+          "hash": "4076102379693557459"
+        },
+        {
+          "file": "src/app/tasks/components/list-grid/list-grid.component.ts",
+          "hash": "10548660707354504812",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
           "file": "src/app/tasks/components/list-skeleton/list-skeleton.component.html",
           "hash": "5003048918833992557"
         },
@@ -330,18 +402,67 @@
         },
         {
           "file": "src/app/tasks/components/modal-add-list/modal-add-list.component.html",
-          "hash": "17110115171769846660"
+          "hash": "4180196043833320459"
         },
         {
           "file": "src/app/tasks/components/modal-add-list/modal-add-list.component.ts",
-          "hash": "2582922909745863249",
+          "hash": "11689351681884222670",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/modal-add-task/modal-add-task.component.html",
+          "hash": "6939778924381396949"
+        },
+        {
+          "file": "src/app/tasks/components/modal-add-task/modal-add-task.component.ts",
+          "hash": "1238541639481760787",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/modal-delete-list/modal-delete-list.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/tasks/components/modal-delete-list/modal-delete-list.component.html",
+          "hash": "4549766345713927008"
+        },
+        {
+          "file": "src/app/tasks/components/modal-delete-list/modal-delete-list.component.ts",
+          "hash": "8178596175418146261",
+          "deps": [
+            "npm:@angular/core",
+            "npm:sweetalert2"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/modal-edit-list/modal-edit-list.component.html",
+          "hash": "12158541502244681198"
+        },
+        {
+          "file": "src/app/tasks/components/modal-edit-list/modal-edit-list.component.ts",
+          "hash": "3472857501488888962",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/tasks/components/tasks-grid/tasks-grid.component.html",
+          "hash": "12547099895344745706"
+        },
+        {
+          "file": "src/app/tasks/components/tasks-grid/tasks-grid.component.ts",
+          "hash": "9654645816440041915",
           "deps": [
             "npm:@angular/core"
           ]
         },
         {
           "file": "src/app/tasks/components/tasks-header/tasks-header.component.html",
-          "hash": "2139990814022892600"
+          "hash": "1692852026219157574"
         },
         {
           "file": "src/app/tasks/components/tasks-header/tasks-header.component.ts",
@@ -353,22 +474,23 @@
         },
         {
           "file": "src/app/tasks/components/welcome-user/welcome-user.component.css",
-          "hash": "3244421341483603138"
+          "hash": "15036214574332298676"
         },
         {
           "file": "src/app/tasks/components/welcome-user/welcome-user.component.html",
-          "hash": "3640166867496763240"
+          "hash": "3076124369519424209"
         },
         {
           "file": "src/app/tasks/components/welcome-user/welcome-user.component.ts",
-          "hash": "12269667336872263618",
+          "hash": "9975901333283599071",
           "deps": [
-            "npm:@angular/core"
+            "npm:@angular/core",
+            "npm:sweetalert2"
           ]
         },
         {
           "file": "src/app/tasks/interfaces/list-tasks.interface.ts",
-          "hash": "16652095312540531927"
+          "hash": "10157074956979569673"
         },
         {
           "file": "src/app/tasks/interfaces/task-priority.enum.ts",
@@ -377,6 +499,14 @@
         {
           "file": "src/app/tasks/interfaces/task-state.enum.ts",
           "hash": "5048540469450912378"
+        },
+        {
+          "file": "src/app/tasks/interfaces/task.interface.ts",
+          "hash": "9458221838710549815"
+        },
+        {
+          "file": "src/app/tasks/interfaces/type-crud-enum.ts",
+          "hash": "12539479990196713708"
         },
         {
           "file": "src/app/tasks/pages/layout-tasks/layout-tasks.component.css",
@@ -388,44 +518,64 @@
         },
         {
           "file": "src/app/tasks/pages/layout-tasks/layout-tasks.component.ts",
-          "hash": "5693247530283336068",
+          "hash": "17522537690476432505",
           "deps": [
             "npm:@angular/core"
           ]
         },
         {
           "file": "src/app/tasks/pages/list-tasks/list-tasks.component.css",
-          "hash": "16336391237245404528"
+          "hash": "12191428099442030610"
         },
         {
           "file": "src/app/tasks/pages/list-tasks/list-tasks.component.html",
-          "hash": "4496669221428484271"
+          "hash": "4155571588871548940"
         },
         {
           "file": "src/app/tasks/pages/list-tasks/list-tasks.component.ts",
-          "hash": "13591658362233659506",
+          "hash": "4710510347917318803",
           "deps": [
-            "npm:@angular/core"
+            "npm:@angular/core",
+            "npm:sweetalert2"
           ]
         },
         {
           "file": "src/app/tasks/pages/tasks/tasks.component.css",
-          "hash": "3244421341483603138"
+          "hash": "4240059353857156314"
         },
         {
           "file": "src/app/tasks/pages/tasks/tasks.component.html",
-          "hash": "9072224376196479045"
+          "hash": "6653778716842516879"
         },
         {
           "file": "src/app/tasks/pages/tasks/tasks.component.ts",
-          "hash": "15437806622855586939",
+          "hash": "15449232559518241760",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "src/app/tasks/services/list-tasks.service.ts",
+          "hash": "8277320334670445308",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "src/app/tasks/services/tasks.service.ts",
+          "hash": "5183240404164043797",
           "deps": [
             "npm:@angular/core"
           ]
         },
         {
           "file": "src/app/tasks/tasks-routing.module.ts",
-          "hash": "15586301329410278864",
+          "hash": "1061396437176311710",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router"
@@ -433,11 +583,16 @@
         },
         {
           "file": "src/app/tasks/tasks.module.ts",
-          "hash": "10888825283586927049",
+          "hash": "12072382685997624246",
           "deps": [
             "npm:@angular/core",
-            "npm:@angular/common"
+            "npm:@angular/common",
+            "npm:@angular/forms"
           ]
+        },
+        {
+          "file": "src/app/users/classes/User.class.ts",
+          "hash": "14041154051680453466"
         },
         {
           "file": "src/app/users/interfaces/User-messages.enum.ts",
@@ -449,11 +604,11 @@
         },
         {
           "file": "src/app/users/interfaces/User.interface.ts",
-          "hash": "10422332911250561198"
+          "hash": "8058444400964949987"
         },
         {
           "file": "src/app/users/services/users.service.ts",
-          "hash": "3557536998032038235",
+          "hash": "3756087803778647944",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -510,7 +665,7 @@
         },
         {
           "file": "src/environments/environments.ts",
-          "hash": "8840567900752463843"
+          "hash": "8508626054946532775"
         },
         {
           "file": "src/favicon.ico",
@@ -528,8 +683,12 @@
           ]
         },
         {
+          "file": "src/reset.css",
+          "hash": "3706474351649891337"
+        },
+        {
           "file": "src/styles.css",
-          "hash": "11866566973261040891"
+          "hash": "10323556830240437007"
         },
         {
           "file": "tsconfig.app.json",

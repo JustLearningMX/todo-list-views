@@ -17,6 +17,9 @@ import { ListCardComponent } from './components/list-card/list-card.component';
 import { ModalDeleteListComponent } from './components/modal-delete-list/modal-delete-list.component';
 import { ModalEditListComponent } from './components/modal-edit-list/modal-edit-list.component';
 import { FormListTasksComponent } from './components/form-list-tasks/form-list-tasks.component';
+import { TasksGridComponent } from './components/tasks-grid/tasks-grid.component';
+import { ModalAddTaskComponent } from './components/modal-add-task/modal-add-task.component';
+import { FormTasksComponent } from './components/form-tasks/form-tasks.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { FormListTasksComponent } from './components/form-list-tasks/form-list-t
     ListCardComponent,
     ModalDeleteListComponent,
     ModalEditListComponent,
-    FormListTasksComponent
+    FormListTasksComponent,
+    TasksGridComponent,
+    ModalAddTaskComponent,
+    FormTasksComponent
   ],
   imports: [
     CommonModule,

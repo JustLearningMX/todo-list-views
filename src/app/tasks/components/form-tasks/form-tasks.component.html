@@ -1,0 +1,101 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" autocomplete="off">
+  <div
+    class="flex flex-column px-4 py-3 gap-3 md:px-8 md:py-5 md:gap-4"
+  >
+    <div *ngIf="!isParamId" class="inline-flex flex-column gap-2">
+      <label for="listOfTasks" class="text-primary-50 font-semibold">Listas</label>
+      <div>
+        <p-dropdown
+          id="listOfTasks"
+          optionLabel="name"
+          [options]="lists"
+          placeholder="Selecciona una lista"
+          #listOfTasksDropdown
+        ></p-dropdown>
+      </div>
+    </div>
+
+    <div class="inline-flex flex-column gap-2">
+      <label for="taskTitle" class="text-primary-50 font-semibold">Título</label>
+      <input formControlName="title" pInputText id="taskTitle" class="bg-white-alpha-20 border-none p-3 text-primary-50"/>
+      <span [ngStyle]="{color: 'var(--red-500)', fontSize: '0.9rem'}"
+            *ngIf="validatorService.isValidField(myForm, 'title')"
+      >
+          {{ validatorService.getFieldError(myForm, 'title')}}
+        </span>
+    </div>
+
+    <div class="inline-flex flex-column gap-2">
+      <label for="taskDescription" class="text-primary-50 font-semibold">Descripción</label>
+      <input formControlName="description" pInputText id="taskDescription" class="bg-white-alpha-20 border-none p-3 text-primary-50"/>
+      <span [ngStyle]="{color: 'var(--red-500)', fontSize: '0.9rem'}"
+            *ngIf="validatorService.isValidField(myForm, 'description')"
+      >
+        {{ validatorService.getFieldError(myForm, 'description')}}
+      </span>
+    </div>
+
+    <div class="inline-flex flex-column gap-2">
+      <label for="taskExpiration" class="text-primary-50 font-semibold">Expira</label>
+      <p-calendar
+        id="taskExpiration"
+        formControlName="expirationDate"
+        dateFormat="dd-M-yy"
+        [minDate]="minDate"
+        [showIcon]="true"
+        [showTime]="true"
+        [showSeconds]="false"
+        inputId="time"
+        class="ng-invalid ng-dirty"
+      ></p-calendar>
+      <span [ngStyle]="{color: 'var(--red-500)', fontSize: '0.9rem'}"
+            *ngIf="validatorService.isValidField(myForm, 'expirationDate')"
+      >
+        {{ validatorService.getFieldError(myForm, 'expirationDate')}}
+      </span>
+    </div>
+
+    <div class="inline-flex flex-column gap-2">
+      <label for="taskState" class="text-primary-50 font-semibold">Estado de la tarea</label>
+      <div>
+        <p-dropdown
+          id="taskState"
+          optionLabel="name"
+          formControlName="state"
+          [options]="states"
+          placeholder="Selecciona su estado"
+        ></p-dropdown>
+      </div>
+    </div>
+
+    <div class="inline-flex flex-column gap-2">
+      <label for="taskPriority" class="text-primary-50 font-semibold">Prioridad</label>
+      <div>
+        <p-dropdown
+          id="taskPriority"
+          optionLabel="name"
+          formControlName="priority"
+          [options]="priorities"
+          placeholder="Selecciona su prioridad"
+        ></p-dropdown>
+      </div>
+    </div>
+
+  </div>
+  <div class="flex align-items-center px-4 py-3 gap-2 md:px-8 md:py-5 md:gap-4">
+    <p-button
+      label="Guardar"
+      type="submit"
+      [text]="true"
+      styleClass="w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10" class="w-full"
+    ></p-button>
+
+    <p-button
+      label="Cancelar"
+      (click)="cancelDialog()"
+      [text]="true"
+      styleClass="w-full text-primary-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10"
+      class="w-full"
+    ></p-button>
+  </div>
+</form>

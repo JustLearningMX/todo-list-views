@@ -1,5 +1,5 @@
 export const environments = {
-    baseUrl: 'https://mistareas-api-02abe3439d68.herokuapp.com'
+    baseUrl: 'http://localhost:8080'
 };
 
 //'http://localhost:8080'

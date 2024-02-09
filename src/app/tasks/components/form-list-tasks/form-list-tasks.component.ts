@@ -67,8 +67,8 @@ export class FormListTasksComponent implements OnInit {
     this.listOfTasksReq = this.listTasksService.listTasks;
 
     this.myForm.reset({
-    name: this.listOfTasksReq.name,
-    description: this.listOfTasksReq.description
+      name: this.listOfTasksReq.name,
+      description: this.listOfTasksReq.description
     });
   }
 
@@ -87,7 +87,6 @@ export class FormListTasksComponent implements OnInit {
           this.listTasksService.listOfTasks = [ ...this.listTasksService.listOfTasks, resp ];
 
           this.myForm.reset();
-          this.onChangeModalVisibility.emit(false);
         },
         error: (err: string): void => {
           Swal.fire({
@@ -97,6 +96,8 @@ export class FormListTasksComponent implements OnInit {
           });
         }
       });
+
+    this.onChangeModalVisibility.emit(false);
   }
 
   updateListTasks(): void {

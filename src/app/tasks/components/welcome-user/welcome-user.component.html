@@ -1,6 +1,8 @@
-<div class="card flex flex-column line-height-2 ">
-  <p class="font-semibold md:font-bold">
+<div class="flex flex-column">
+  <p class="md:font-bold m-0 p-0 border-0">
     {{user ? 'Hola' : 'Cargando...'}} {{ user?.firstName | titlecase }}
   </p>
-  <p *ngIf="user && message.length > 0" class="font-italic font-light text-bluegray-400"> {{ message }} </p>
+  <p *ngIf="user && message.length > 0" class="font-italic text-bluegray-400 m-0 p-0 border-0 mt-1 md:mt-2"
+     [style]="{ 'font-size': '0.8rem' }"
+  > {{ message }} </p>
 </div>
