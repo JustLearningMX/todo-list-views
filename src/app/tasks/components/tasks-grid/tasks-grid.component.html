@@ -1,1 +1,10 @@
-<p>tasks-grid works!</p>
+<div class="px-1 py-2 md:px-5 lg:px-6">
+  <div class="grid">
+    <div
+      *ngFor="let task of tasks"
+      class="col-12 md:col-6 lg:col-6"
+    >
+      <task-card [task]="task"></task-card>
+    </div>
+  </div>
+</div>

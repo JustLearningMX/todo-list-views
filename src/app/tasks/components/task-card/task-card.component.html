@@ -1,0 +1,8 @@
+<div class="surface-card shadow-2 p-3 border-round">
+  <div class="font-medium mb-3"> {{ task.title }}</div>
+  <div class="mb-3">Prioridad: {{ task.priority | titlecase }}.</div>
+  <div class="mb-3">Expira: {{ task.expirationDate | date }}.</div>
+  <div style="height: auto; min-height: 35px; font-size: .9rem; line-height: 35px" class="p-1 border-2 border-dashed surface-border font-italic">
+    {{ task.description }}
+  </div>
+</div>

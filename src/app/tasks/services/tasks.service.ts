@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from "@angular/router";
-import { catchError, Observable, throwError } from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 import { environments } from "../../../environments/environments";
@@ -53,6 +53,7 @@ export class TasksService {
 
     return this.http.post<Task>(`${this.baseUrl}/tasks`, body, { headers })
       .pipe(
+        tap( task => console.log('Tarea creada', task)),
         catchError(({ error }) => {
           return throwError( () => error.messages ? getFirstMessageOfError(error.messages) : 'Error en el servidor al crear la tarea');
         })

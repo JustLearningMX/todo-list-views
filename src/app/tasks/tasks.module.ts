@@ -20,6 +20,7 @@ import { FormListTasksComponent } from './components/form-list-tasks/form-list-t
 import { TasksGridComponent } from './components/tasks-grid/tasks-grid.component';
 import { ModalAddTaskComponent } from './components/modal-add-task/modal-add-task.component';
 import { FormTasksComponent } from './components/form-tasks/form-tasks.component';
+import { TaskCardComponent } from './components/task-card/task-card.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FormTasksComponent } from './components/form-tasks/form-tasks.component
     FormListTasksComponent,
     TasksGridComponent,
     ModalAddTaskComponent,
-    FormTasksComponent
+    FormTasksComponent,
+    TaskCardComponent
   ],
   imports: [
     CommonModule,

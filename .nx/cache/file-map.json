@@ -65,7 +65,7 @@
         },
         {
           "file": "angular.json",
-          "hash": "3028104328010911283"
+          "hash": "3611136011860422083"
         },
         {
           "file": "package-lock.json",
@@ -574,7 +574,7 @@
         },
         {
           "file": "src/app/tasks/services/tasks.service.ts",
-          "hash": "15464411429933136945",
+          "hash": "12610966674701712310",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
