@@ -7,9 +7,10 @@ import { TasksComponent } from "./pages/tasks/tasks.component";
 
 const routes: Routes = [
   { path: '', component: LayoutTasksComponent,
+    data: { breadcrumb: 'mis listas' },
     children: [
-      { path: 'listado', component: ListTasksComponent },
-      { path: 'listado/:id', component: TasksComponent },
+      { path: 'listado', component: ListTasksComponent, data: { breadcrumb: null } },
+      { path: 'listado/:id', component: TasksComponent, data: { breadcrumb: 'mis tareas' } },
       { path: '**', redirectTo: 'listado' },
     ]
   }

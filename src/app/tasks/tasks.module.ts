@@ -21,6 +21,7 @@ import { TasksGridComponent } from './components/tasks-grid/tasks-grid.component
 import { ModalAddTaskComponent } from './components/modal-add-task/modal-add-task.component';
 import { FormTasksComponent } from './components/form-tasks/form-tasks.component';
 import { TaskCardComponent } from './components/task-card/task-card.component';
+import { BreadcrumbMenuComponent } from './components/breadcrumb-menu/breadcrumb-menu.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TaskCardComponent } from './components/task-card/task-card.component';
     TasksGridComponent,
     ModalAddTaskComponent,
     FormTasksComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    BreadcrumbMenuComponent
   ],
   imports: [
     CommonModule,

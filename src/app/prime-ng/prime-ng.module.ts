@@ -8,6 +8,7 @@ import {SkeletonModule} from "primeng/skeleton";
 import {DialogModule} from "primeng/dialog";
 import {DropdownModule} from "primeng/dropdown";
 import {CalendarModule} from "primeng/calendar";
+import {BreadcrumbModule} from "primeng/breadcrumb";
 
 @NgModule({
   declarations: [],
@@ -19,7 +20,8 @@ import {CalendarModule} from "primeng/calendar";
     SkeletonModule,
     DialogModule,
     DropdownModule,
-    CalendarModule
+    CalendarModule,
+    BreadcrumbModule,
   ],
 })
 export class PrimeNgModule { }
